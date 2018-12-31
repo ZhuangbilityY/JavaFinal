@@ -6,49 +6,48 @@
 ### Individual package
 
 #### Individual
-1. implements Runnable 使用Runnable接口作为线程处理
-2. int CombatEffectiveness 
-1. 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
-2. 在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
-3. Coordinates Position 位置信息，还有相似的一些属性
+##### implements Runnable 使用Runnable接口作为线程处理
+##### int CombatEffectiveness 
+##### 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
+##### 在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
+##### Coordinates Position 位置信息，还有相似的一些属性
 #### Hero 
-1. extends Individual
-2. 好人阵营类
+##### extends Individual
+##### 好人阵营类
 #### Villian
-1. extends Individual
-2. 坏人阵营类
+##### extends Individual
+##### 坏人阵营类
 #### CalabashBrothers
-1. extends Hero
-2. public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
+##### extends Hero
+##### public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
 #### Grandpa
-1. extends Hero
+##### extends Hero
 #### Goblin
-1. extends Villian
+##### extends Villian
 #### Scorpion
-1. extends Villian 
+##### extends Villian 
 #### Snake
-1. extends Villian
+##### extends Villian
 		
 ### Formations package
 #### Coordinates
 			
 #### Formation
-1. implements Serializable 可序列化
-2. public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
-3. public Vector<Coordinates> coordinatesList；
-1. 阵型对应的一系列坐标
+##### implements Serializable 可序列化
+##### public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
+##### public Vector<Coordinates> coordinatesList； 阵型对应的一系列坐标
 #### BattleField
-1. 战场，主要作为静态全局使用
-2. public static Hero[] heros;
-3. public static Villian[] villians;
-4. public static GridPane grid; 界面排布方式
+##### 战场，主要作为静态全局使用
+##### public static Hero[] heros;
+##### public static Villian[] villians;
+##### public static GridPane grid; 界面排布方式
 ### Game package
 #### Action
-1. implements Serializable 序列化
-2. 作为战斗行动信息来保存
+##### implements Serializable 序列化
+##### 作为战斗行动信息来保存
 #### GameThread
-1. SequentialTransition AnimationList; 动画序列
-2. Vector<Action> ActionList; 战斗行动序列
+##### SequentialTransition AnimationList; 动画序列
+##### Vector<Action> ActionList; 战斗行动序列
 	
 	
 ## 方法实现
@@ -107,8 +106,8 @@ public void run() {
 	
 	
 ### 键盘响应
-1. 空格开始游戏，S保存游戏，L读取游戏
-2. 
+#### 空格开始游戏，S保存游戏，L读取游戏
+#### 
 ```
 		        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
                                   @Override
