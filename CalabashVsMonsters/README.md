@@ -2,8 +2,10 @@
 # 葫芦娃大战蛇精
 
 ## 数据结构
-	### Individual package
-		#### Individual
+	
+### Individual package
+
+#### Individual
 			1. implements Runnable 使用Runnable接口作为线程处理
 			2. int CombatEffectiveness 
 				1. 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
