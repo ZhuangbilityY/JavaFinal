@@ -6,55 +6,55 @@
 ### Individual package
 
 #### Individual
-			1. implements Runnable 使用Runnable接口作为线程处理
-			2. int CombatEffectiveness 
-				1. 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
-				2. 在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
-			3. Coordinates Position 位置信息，还有相似的一些属性
-		#### Hero 
-			1. extends Individual
-			2. 好人阵营类
-		#### Villian
-			1. extends Individual
-			2. 坏人阵营类
-		#### CalabashBrothers
-			1. extends Hero
-			2. public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
-		#### Grandpa
-			1. extends Hero
-		#### Goblin
-			1. extends Villian
-		#### Scorpion
-			1. extends Villian 
-		#### Snake
-			1. extends Villian
+1. implements Runnable 使用Runnable接口作为线程处理
+2. int CombatEffectiveness 
+1. 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
+2. 在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
+3. Coordinates Position 位置信息，还有相似的一些属性
+#### Hero 
+1. extends Individual
+2. 好人阵营类
+#### Villian
+1. extends Individual
+2. 坏人阵营类
+#### CalabashBrothers
+1. extends Hero
+2. public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
+#### Grandpa
+1. extends Hero
+#### Goblin
+1. extends Villian
+#### Scorpion
+1. extends Villian 
+#### Snake
+1. extends Villian
 		
-	### Formations package
-		#### Coordinates
+### Formations package
+#### Coordinates
 			
-		#### Formation
-			1. implements Serializable 可序列化
-			2. public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
-			3. public Vector<Coordinates> coordinatesList；
-				1. 阵型对应的一系列坐标
-		#### BattleField
-			1. 战场，主要作为静态全局使用
-			2. public static Hero[] heros;
-			3. public static Villian[] villians;
-			4. public static GridPane grid; 界面排布方式
-	### Game package
-		#### Action
-			1. implements Serializable 序列化
-			2. 作为战斗行动信息来保存
-		#### GameThread
-			1. SequentialTransition AnimationList; 动画序列
-			2. Vector<Action> ActionList; 战斗行动序列
+#### Formation
+1. implements Serializable 可序列化
+2. public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
+3. public Vector<Coordinates> coordinatesList；
+1. 阵型对应的一系列坐标
+#### BattleField
+1. 战场，主要作为静态全局使用
+2. public static Hero[] heros;
+3. public static Villian[] villians;
+4. public static GridPane grid; 界面排布方式
+### Game package
+#### Action
+1. implements Serializable 序列化
+2. 作为战斗行动信息来保存
+#### GameThread
+1. SequentialTransition AnimationList; 动画序列
+2. Vector<Action> ActionList; 战斗行动序列
 	
 	
 ## 方法实现
-	### Individual个体线程的run
-	```
-	public void run() {
+### Individual个体线程的run
+```
+public void run() {
         while(BattleField.hero_left > 0 && BattleField.villian_left > 0) {
 
             synchronized (BattleField.DuringMove) {
@@ -85,12 +85,13 @@
             GameThread.AnimationList.play();
         }
 
-    }
-	```
+   }
+    
+```
 	
 	
-	### 动画实现（以一个移动为例）
-	```
+### 动画实现（以一个移动为例）
+```
 	public static TranslateTransition MoveAnimation(Individual individual, int deviateX, int deviateY) {
         TranslateTransition move = new TranslateTransition(Duration.millis(500), individual.getIndividualImageView());  //平移动画
 
@@ -102,13 +103,13 @@
 
         return move;
     }
-	```
+```
 	
 	
-	### 键盘响应
-		1. 空格开始游戏，S保存游戏，L读取游戏
-		2. 
-		```
+### 键盘响应
+1. 空格开始游戏，S保存游戏，L读取游戏
+2. 
+```
 		        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
                                   @Override
                                   public void handle(KeyEvent event) {
@@ -141,7 +142,7 @@
                               }
 
 				);
-		```
+```
 	
 ## 	 其他
 	1. maven由于和jdk10.0.2似乎有不适配的地方，所以代码中没有给出测试用例
