@@ -6,7 +6,7 @@
 ### Individual package
 
 #### Individual
-##### implements Runnable 使用Runnable接口作为线程处理
+	##### implements Runnable 使用Runnable接口作为线程处理
 ##### int CombatEffectiveness 
 ##### 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
 ##### 在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
