@@ -2,55 +2,55 @@
 # 葫芦娃大战蛇精
 
 ## 数据结构
-	1. Individual package
-		1. Individual
+	### Individual package
+		#### Individual
 			1. implements Runnable 使用Runnable接口作为线程处理
 			2. int CombatEffectiveness 
 				1. 战斗力，每个个体赋予不同的战斗力，在对战时进行比例分配随机决定生死
 				2. 在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
 			3. Coordinates Position 位置信息，还有相似的一些属性
-		2. Hero 
+		#### Hero 
 			1. extends Individual
 			2. 好人阵营类
-		3. Villian
+		#### Villian
 			1. extends Individual
 			2. 坏人阵营类
-		4. CalabashBrothers
+		#### CalabashBrothers
 			1. extends Hero
 			2. public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
-		5. Grandpa
+		#### Grandpa
 			1. extends Hero
-		6. Goblin
+		#### Goblin
 			1. extends Villian
-		7. Scorpion
+		#### Scorpion
 			1. extends Villian 
-		8. Snake
+		#### Snake
 			1. extends Villian
 		
-	2. Formations package
-		1. Coordinates
+	### Formations package
+		#### Coordinates
 			
-		2. Formation
+		#### Formation
 			1. implements Serializable 可序列化
 			2. public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
 			3. public Vector<Coordinates> coordinatesList；
 				1. 阵型对应的一系列坐标
-		3. BattleField
+		#### BattleField
 			1. 战场，主要作为静态全局使用
 			2. public static Hero[] heros;
 			3. public static Villian[] villians;
 			4. public static GridPane grid; 界面排布方式
-	3. Game package
-		1. Action
+	### Game package
+		#### Action
 			1. implements Serializable 序列化
 			2. 作为战斗行动信息来保存
-		2. GameThread
+		#### GameThread
 			1. SequentialTransition AnimationList; 动画序列
 			2. Vector<Action> ActionList; 战斗行动序列
 	
 	
 ## 方法实现
-	1. Individual个体线程的run
+	### Individual个体线程的run
 	```
 	public void run() {
         while(BattleField.hero_left > 0 && BattleField.villian_left > 0) {
@@ -87,7 +87,7 @@
 	```
 	
 	
-	2. 动画实现（以一个移动为例）
+	### 动画实现（以一个移动为例）
 	```
 	public static TranslateTransition MoveAnimation(Individual individual, int deviateX, int deviateY) {
         TranslateTransition move = new TranslateTransition(Duration.millis(500), individual.getIndividualImageView());  //平移动画
@@ -103,7 +103,7 @@
 	```
 	
 	
-	3. 键盘响应
+	### 键盘响应
 		1. 空格开始游戏，S保存游戏，L读取游戏
 		2. 
 		```
