@@ -12,42 +12,42 @@
 	在战力分配上，在生成个体的时候各自有一个随机战力范围，比如小怪是10-20
 	Coordinates Position 位置信息，还有相似的一些属性
 #### Hero 
-##### extends Individual
-##### 好人阵营类
+	extends Individual
+	好人阵营类
 #### Villian
-##### extends Individual
-##### 坏人阵营类
+	extends Individual
+	坏人阵营类
 #### CalabashBrothers
-##### extends Hero
-##### public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
+	extends Hero
+	public enum Calabash { RED, ORG, YLW, GRN, CYN, BLU, PPL; } 葫芦种类
 #### Grandpa
-##### extends Hero
+	extends Hero
 #### Goblin
-##### extends Villian
+	extends Villian
 #### Scorpion
-##### extends Villian 
+	extends Villian 
 #### Snake
-##### extends Villian
+	extends Villian
 		
 ### Formations package
 #### Coordinates
-			
+	x, y, valid?
 #### Formation
-##### implements Serializable 可序列化
-##### public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
-##### public Vector<Coordinates> coordinatesList； 阵型对应的一系列坐标
+	implements Serializable 可序列化
+	public enum Shape { Longsnake, Crane, Echelon, Yoke, Scale, Square, Crescent, Spearhead } 阵型类别
+	public Vector<Coordinates> coordinatesList； 阵型对应的一系列坐标
 #### BattleField
-##### 战场，主要作为静态全局使用
-##### public static Hero[] heros;
-##### public static Villian[] villians;
-##### public static GridPane grid; 界面排布方式
+	战场，主要作为静态全局使用
+	public static Hero[] heros;
+	public static Villian[] villians;
+	public static GridPane grid; 界面排布方式
 ### Game package
 #### Action
-##### implements Serializable 序列化
-##### 作为战斗行动信息来保存
+	implements Serializable 序列化
+	作为战斗行动信息来保存
 #### GameThread
-##### SequentialTransition AnimationList; 动画序列
-##### Vector<Action> ActionList; 战斗行动序列
+	SequentialTransition AnimationList; 动画序列
+	Vector<Action> ActionList; 战斗行动序列
 	
 	
 ## 方法实现
